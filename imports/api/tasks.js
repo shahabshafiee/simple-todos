@@ -44,7 +44,7 @@ Meteor.methods({
         const t1 = Tasks.findOne(
             {randomId: randomId}
         )
-        console.log("user: ",t1.username," added ",t1 ," to the database")
+        console.log("user: ",t1.username," added ",t1 ,"\n", " to the database")
 
     },
     'tasks.remove' (taskId) {
