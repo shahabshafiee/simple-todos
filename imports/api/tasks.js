@@ -31,14 +31,21 @@ Meteor.methods({
          console.log('Meteor.userId():',Meteor.userId())
         //console.log("task: ",task)
          console.log("Meteor.user().username: ",Meteor.user().username)
-
+        const randomId = Math.random();
       Tasks.insert({
         text,
         createdAt: new Date(),
         owner: Meteor.userId(),
         username: Meteor.user().username,
-        private: false
+        private: false,
+        randomId: randomId
       });
+      console.log("randomId: ",randomId)
+        const t1 = Tasks.findOne(
+            {randomId: randomId}
+        )
+        console.log("user: ",t1.username," added ",t1 ," to the database")
+
     },
     'tasks.remove' (taskId) {
       check(taskId, String);
